@@ -9,6 +9,7 @@
   "author": "Emad Rahman",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.3.1"
+    "discord.js": "^12.3.1",
+    "sqlite3": "^5.0.1"
   }
 }

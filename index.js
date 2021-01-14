@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const Config = require('./BugrudoBot/Config');
 const DateHelper = require('./BugrudoBot/DateHelper');
 
+const sqlite3 = require('sqlite3').verbose();
+
 client.once('ready', () => {
     console.log('Ready!');
 });
