@@ -148,19 +148,23 @@ client.on('message', msg => {
                         throw err;
                     }
 
-                    var message = "";
+                    if (rows.length == 0) {
+                        msg.channel.send(`No data in the database!`);
+                    } else {
+                        var message = "";
 
-                    rows.forEach((row) => {
-                        if(message.length > 1500) {
+                        rows.forEach((row) => {
+                            if(message.length > 1500) {
+                                msg.channel.send(message);
+                                message = "";
+                            }
+
+                            message += `**${row.date}**: ${row.description}\n`;
+                        });
+
+                        if(message.length > 0) {
                             msg.channel.send(message);
-                            message = "";
                         }
-
-                        message += `**${row.date}**: ${row.description}\n`;
-                    });
-
-                    if(message.length > 0) {
-                        msg.channel.send(message);
                     }
                 }); 
             });
