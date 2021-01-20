@@ -14,24 +14,23 @@ db.serialize(() => {
         description TEXT
     );`)
 
-    db.run(`INSERT INTO bugs (date, description) VALUES (datetime('now'), 'first bug')`)
-    db.run(`INSERT INTO bugs (date, description) VALUES (datetime('now'), 'second bug')`)
+    // db.run(`INSERT INTO bugs (date, description) VALUES (datetime('now'), 'first bug')`)
+    // db.run(`INSERT INTO bugs (date, description) VALUES (datetime('now'), 'second bug')`)
 
-    var query = `SELECT * FROM bugs ORDER BY date DESC`;
-    db.all(query, [], (err, rows) => {
-        if(err) {
-            throw err;
-        }
-        var count = rows.length;
-        console.log("count is: " + count)
+    // var query = `SELECT * FROM bugs ORDER BY date DESC`;
+    // db.all(query, [], (err, rows) => {
+    //     if(err) {
+    //         throw err;
+    //     }
+    //     var count = rows.length;
+    //     console.log("count is: " + count)
 
-        rows.forEach((row) => {
-            console.log(row.description);
-        });
+    //     rows.forEach((row) => {
+    //         console.log(row.description);
+    //     });
 
-    }); 
-
-  });
+    // }); 
+});
 
 
 db.close((err) => {
@@ -39,4 +38,4 @@ db.close((err) => {
       console.error(err.message);
     }
     console.log('Close the database connection.');
-  });
+});
